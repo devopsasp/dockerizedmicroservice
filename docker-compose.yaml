@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+
+  service2:
+    container_name: itemmiapimicroservice
+    hostname: microservice
+    build:
+      context: ./itemmicroservice
+      dockerfile: dockerfile
+    ports:
+        - 4500:4500
+    expose:
+        - '4500'    
+
+    
+
+  service3:
+    container_name: itemmiapiui
+    hostname: ui
+    build:
+      context: ./itemapplicationui/itemui
+      dockerfile: dockerfile
+    ports:
+        - 3000:3000
+  
+
+  itemservice:
+    container_name: itemapiendpoint
+    hostname: itemhost
+    build: 
+      context: ./itemapiendpoint
+      dockerfile: dockerfile
+     
+    ports:
+      - 5000:5000
+
+    expose:
+     - '5000'   
+  
+    
+    
